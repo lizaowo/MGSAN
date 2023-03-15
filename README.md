@@ -1,5 +1,5 @@
 # MGSAN
-Note: We provide our MGSAN test weight achieves 85.5% on NTU120 CSub with joint modality only, and six-stream MGSAN achieves 90.3% on NTU120 CSub.
+Note: We provide our MGSAN test weight achieving 85.5% on NTU120 CSub with joint modality only, and six-stream MGSAN achieving 90.3% on NTU120 CSub.
 
 ## Architecture of GSA
 ![image](src/GSA_block.jpg)
@@ -70,14 +70,14 @@ python main.py --config config/nturgbd120-cross-subject/default.yaml --model mod
 
 ### Testing
 
-- To test the trained models saved in ./test_weights/test/NTU120_csub_joint, run the following command:
-- You're going to get MGSAN test weight achieves 85.5% on NTU120 CSub with joint modality only
+- To test the trained models saved in ./test_weights/test/NTU120_csub_joint, run the following command, 
+and you will get MGSAN test weight achieving 85.5% on NTU120 CSub with joint modality only.
 ```
 python main.py --phase test --weights ./test_weights/test/NTU120_csub_joint/runs-94-46248.pt --device 0
 ```
 
-- To ensemble the results of different modalities, run:
-- You're going to get the multi-stream fusion accuracy of MGSAN on NTU120 CSub, where 2-stream accuracy is 89.1, 4-stream accuracy is 90, 6-stream accuracy is 90.3
+- To ensemble the results of different modalities, run the following command, and you will get the multi-stream fusion accuracy of MGSAN on NTU120 CSub, 
+where 2-stream accuracy is 89.1, 4-stream accuracy is 90, and 6-stream accuracy is 90.3.
 ```
 # Example: ensemble six modalitiese of MGSAN on NTU RGB+D 120 cross subjct
 python Mensemble.py --dataset ntu120/xsub --joint-dir ./test_weights/ensemble/NTU120_csub_joint --bone-dir ./test_weights/ensemble/NTU120_csub_bone --joint2-dir ./test_weights/ensemble/NTU120_csub_joint2 --bone2-dir ./test_weights/ensemble/NTU120_csub_bone2 --joint3-dir ./test_weights/ensemble/NTU120_csub_joint3 --bone3-dir ./test_weights/ensemble/NTU120_csub_bone3
